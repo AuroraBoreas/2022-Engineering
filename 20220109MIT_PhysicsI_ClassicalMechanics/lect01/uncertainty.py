@@ -55,10 +55,10 @@ class Measurement:
         return f'absolute: ({self._meas_val} ± {self._meas_unc}); relative: ({self.to_relative()})'
 
     @property
-    def relative_uncertainty(self)->float:
+    def relative_uncertainty(self) -> float:
         return self._meas_unc / self._meas_val
 
-    def to_relative(self)->str:
+    def to_relative(self) -> str:
         return f'{self._meas_val} ± {self.relative_uncertainty * 100}%'
 
     def __eq__(self, other: Measurement) -> bool:
@@ -67,21 +67,21 @@ class Measurement:
     def __le__(self, other: Measurement) -> bool:
         return self._meas_val < other._meas_val
 
-    def __add__(self, other:Measurement)->Measurement:
+    def __add__(self, other: Measurement) -> Measurement:
         return Measurement(self._meas_val + other._meas_val, self._meas_unc + other._meas_unc)
 
-    def __sub__(self, other:Measurement)->Measurement:
+    def __sub__(self, other: Measurement) -> Measurement:
         return Measurement(self._meas_val - other._meas_val, self._meas_unc + other._meas_unc)
 
-    def __mul__(self, other:Measurement)->Measurement:
+    def __mul__(self, other: Measurement) -> Measurement:
         new_mv = self._meas_val * other._meas_val
         return Measurement(new_mv, new_mv * (self.relative_uncertainty + other.relative_uncertainty))
 
-    def __truediv__(self, other:Measurement)->Measurement:
+    def __truediv__(self, other: Measurement) -> Measurement:
         new_mv = self._meas_val / other._meas_val
         return Measurement(new_mv, new_mv * (self.relative_uncertainty + other.relative_uncertainty))
 
-    def pow(self, p:int)->Measurement:
+    def pow(self, p:int) -> Measurement:
         # new_mv = math.pow(self._meas_val, p) not work, using dunder method Decimal.__pow__() instead
         new_mv = self._meas_val.__pow__(p)
         new_mu = self.relative_uncertainty * p
@@ -108,6 +108,11 @@ def client_code()->None:
     mu1 = Measurement(Decimal('2.0'), Decimal('1.0'))
     print(mu1.pow(3))
     print(mu1 == mu1)
+
+    # MIT PhysicsI Classical Mechanics, lect 01, 32:58
+    t1 = Measurement(Decimal('0.781'), Decimal('0.002'))
+    t2 = Measurement(Decimal('0.551'), Decimal('0.002'))
+    print(t1 / t2)
 
 if __name__ == '__main__':
     client_code()
