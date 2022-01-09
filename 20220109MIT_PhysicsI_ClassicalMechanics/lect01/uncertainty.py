@@ -61,6 +61,19 @@ class Measurement:
     def to_relative(self) -> str:
         return f'{self._meas_val} ± {self.relative_uncertainty * 100}%'
 
+    @staticmethod
+    def to_absolute(mv:Decimal, ru:Decimal) -> str:
+        """return absolute measurement uncertainty from a given absolute uncertainty
+
+        Args:
+            mv (Decimal): measurement value
+            ru (Decimal): relative uncertainty
+
+        Returns:
+            str: measurement object
+        """
+        return Measurement(mv, mv * ru)
+
     def __eq__(self, other: Measurement) -> bool:
         return self._meas_val == other._meas_val
 
@@ -113,6 +126,8 @@ def client_code()->None:
     t1 = Measurement(Decimal('0.781'), Decimal('0.002'))
     t2 = Measurement(Decimal('0.551'), Decimal('0.002'))
     print(t1 / t2)
+
+    print(Measurement.to_absolute(Decimal('0.781'), Decimal('0.002560819462227913')))
 
 if __name__ == '__main__':
     client_code()
