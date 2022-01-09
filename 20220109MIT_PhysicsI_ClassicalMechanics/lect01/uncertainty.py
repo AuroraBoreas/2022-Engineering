@@ -122,7 +122,8 @@ def client_code()->None:
     print(mu1.pow(3))
     print(mu1 == mu1)
 
-    # MIT PhysicsI Classical Mechanics, lect 01, 32:58
+    # MIT PhysicsI Classical Mechanics, lect 01, 32:58;
+    # it explains why prof Walter wrote measurement uncertainty is ± 0.008;
     t1 = Measurement(Decimal('0.781'), Decimal('0.002'))
     t2 = Measurement(Decimal('0.551'), Decimal('0.002'))
     print(t1 / t2)
