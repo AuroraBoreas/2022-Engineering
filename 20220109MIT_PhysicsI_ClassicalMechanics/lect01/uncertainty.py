@@ -30,6 +30,8 @@ link: https://www.wikihow.com/Calculate-Uncertainty
 from __future__ import annotations
 from decimal import Decimal
 from functools import total_ordering
+from typing import List
+import statistics
 
 @total_ordering
 class Measurement:
@@ -74,6 +76,20 @@ class Measurement:
         """
         return Measurement(mv, mv * ru)
 
+    @staticmethod
+    def calc_uncertainty_of_multimeasurements(measurements: List[float]) -> Measurement:
+        """return measurement object from a give list with measurement results insie
+
+        Args:
+            measurements (List[float]): measurement results, like [3.14, 2.718, 1,818, ...]
+
+        Returns:
+            Measurement: Measurement object
+        """
+        means = statistics.mean(measurements).__str__()
+        sd    = statistics.stdev(measurements).__str__()
+        return Measurement(Decimal(means), Decimal(sd))
+
     def __eq__(self, other: Measurement) -> bool:
         return self._meas_val == other._meas_val
 
@@ -100,35 +116,48 @@ class Measurement:
         new_mu = self.relative_uncertainty * p
         return Measurement(new_mv, new_mv * new_mu)
 
+
 def client_code()->None:
+    print("\n + ")
     mu1 = Measurement(Decimal('5.0'), Decimal('.2'))
     mu2 = Measurement(Decimal('3.0'), Decimal('.1'))
     print(mu1 + mu2)
     print(mu1 < mu2)
 
+    print("\n - ")
     mu1 = Measurement(Decimal('10.0'), Decimal('.4'))
     mu2 = Measurement(Decimal('3.0'), Decimal('.2'))
     print(mu1 - mu2)
 
+    print("\n * ")
     mu1 = Measurement(Decimal('6.0'), Decimal('.2'))
     mu2 = Measurement(Decimal('4.0'), Decimal('.3'))
     print(mu1 * mu2)
 
+    print("\n / ")
     mu1 = Measurement(Decimal('10.0'), Decimal('.6'))
     mu2 = Measurement(Decimal('5.0'), Decimal('.2'))
     print(mu1 / mu2)
 
+    print("\n pow ")
     mu1 = Measurement(Decimal('2.0'), Decimal('1.0'))
     print(mu1.pow(3))
     print(mu1 == mu1)
 
+    print("\n calc uncertainty of multi-measurements ")
+    data = [.43, .52, .35, .29, .49]
+    print(Measurement.calc_uncertainty_of_multimeasurements(data))
+
+    print("\n to_absolute ")
+    print(Measurement.to_absolute(Decimal('0.781'), Decimal('0.002560819462227913')))
+
+    print("\n + ")
     # MIT PhysicsI Classical Mechanics, lect 01, 32:58;
     # it explains why prof Walter wrote measurement uncertainty is ± 0.008;
     t1 = Measurement(Decimal('0.781'), Decimal('0.002'))
     t2 = Measurement(Decimal('0.551'), Decimal('0.002'))
     print(t1 / t2)
 
-    print(Measurement.to_absolute(Decimal('0.781'), Decimal('0.002560819462227913')))
 
 if __name__ == '__main__':
     client_code()
