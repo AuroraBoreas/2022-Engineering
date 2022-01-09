@@ -67,7 +67,7 @@ class Measurement:
 
         Args:
             mv (Decimal): measurement value
-            ru (Decimal): relative uncertainty
+            ru (Decimal): relative uncertainty(%)
 
         Returns:
             str: measurement object
