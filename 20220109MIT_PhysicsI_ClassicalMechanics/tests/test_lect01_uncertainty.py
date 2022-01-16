@@ -1,7 +1,7 @@
 import sys
 sys.path.append('.')
 
-from lib.lect01.uncertainty import (
+from lib.lect01_uncertainty.uncertainty import (
     Measurement, Decimal
 )
 
