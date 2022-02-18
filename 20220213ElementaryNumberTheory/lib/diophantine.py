@@ -1,6 +1,4 @@
 
-from typing import Tuple
-
 from numpy import math
 
 
@@ -13,6 +11,7 @@ class Diophantine:
     def hassolution(a:int, b:int, c:int)->bool:
         '''
         p45/451
+        
         '''
         d = math.gcd(a, b)
         return c % d == 0
