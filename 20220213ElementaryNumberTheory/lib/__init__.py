@@ -1,5 +1,11 @@
 __all__ = [
-    'preliminary',
+    'congruence',
     'divisibility',
-    'diophantine',
+    'euler',
+    'fermat',
+    'ntf',
+    'preliminary',
+    'prime',
+    'qrl',
 ]
+
