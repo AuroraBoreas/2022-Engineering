@@ -140,7 +140,41 @@ class Colour(Wave):
         '''
         return I1
 
+    def bright_nth_newton_ring(self, n:int, R:float, wavelength:float)->float:
+        '''
+        t: thickness of the air film, unit is meter
+        
+        r: radius of the ring, unit is meter
+        
+        D: diameter of the ring, unit is meter
 
+        R: radius of curvature of the lens, unit is meter
+
+        m : mth dark ring, integer
+        
+        n : nth dark ring, integer
+
+        λ = (Dn^2 - Dm^2) / 4R(n-m), unit must be converted to meter; 1 nm = 1e-9 m;
+
+        t = r**2 / 2 * R   (1)
+        
+        t = (2n-1) * λ / 4 (2)
+
+        ref: https://scientificsentence.net/Equations/optics/index.php?key=yes&Integer=Newton_rings
+        '''
+        return math.sqrt(R * (n-1/2) * wavelength)
+
+    def dark_nth_newton_ring(self, n:int, R:float, wavelength:float)->float:
+        '''
+        ref: https://scientificsentence.net/Equations/optics/index.php?key=yes&Integer=Newton_rings
+        '''
+        return math.sqrt(R * n * wavelength)
+
+    def const_frequency_of_electromagnetic_radiation(self, wavelength:float)->float:
+        '''
+        The constant frequency of electromagnetic radiation is given by c/λ
+        '''
+        return self.light_spead / wavelength
 
 if __name__ == '__main__':
     w = Wave()
@@ -148,3 +182,9 @@ if __name__ == '__main__':
 
     c = Colour()
     print(c.speed())
+
+    incident_light_ray_wavelength = 500 # nm
+    spherical_lens_radius = 2.00 # m
+    # get the radius of 4th bright ring
+    r = c.bright_nth_newton_ring(4, spherical_lens_radius, incident_light_ray_wavelength * 1e-9)
+    print(r)
