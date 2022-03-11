@@ -59,6 +59,10 @@ class Colour(Wave):
     violet_wavelength : float = 400    # nm
     violet_frequency  : float = 7.5e14 # Hz
 
+    # const
+    planck_const_h : float = 6.626e34  # Js
+    boltzmann_Kb   : float = 1.38e23   # JK
+
     def speed(self) -> float:
         return self.light_spead
 
@@ -175,6 +179,204 @@ class Colour(Wave):
         The constant frequency of electromagnetic radiation is given by c/λ
         '''
         return self.light_spead / wavelength
+
+    @property
+    def quantum_equation(self)->str:
+        '''
+        P32 / 529
+
+        h : planck's const
+
+        υ : the frequency of the radiation
+        
+        '''
+        return 'E = h * υ'
+
+    @property
+    def planck_black_body_law(self)->str:
+        '''
+        P30 / 529
+
+        h  : planck const
+
+        c  : light speed in vacuum
+
+        λ  : wavelength
+
+        Kb : Boltzmann's constant
+
+        T(K) : temperature of the body
+
+        '''
+        return 'Lυ = 2*h*υ^3 / (c^2 * [exp(h*υ/(Kb*T)) - 1])'
+
+    @property
+    def wien_display_law(self)->str:
+        '''
+        P32 / 529
+        '''
+        return 'λmax * T = constant'
+
+    @property
+    def kinetic_energy_of_photoelectron(self)->float:
+        '''
+        p34 / 529
+
+        m(Kg) : mass
+        
+        υ(Hz) : frequency
+
+        h     : planck const
+
+        φ     : work function of metal and is the energy required to liberate the electron from the metal surface;
+        '''
+        return '1/2 * m * υ = h * υ - φ'
+
+    def image_formation_position_of_concave_mirror(self, d0:float, focus_path:float)->float:
+        '''
+        1 / d0 + 1 / d1 = 1 / focus_path
+        '''
+        return 1 / (1 / focus_path - 1 / d0)
+
+    @property
+    def boltzmann_law(self)->str:
+        '''
+        P36 / 529
+
+        under conditions of thermal equilibrium the relative populations of a series of energy levels will be given by the Boltzmann law;
+
+        which for two energy levels can be written as:
+        
+        '''
+        return 'N1 / N0 = exp[-(E1 - E0) / (Kb * T)]'
+
+    @property
+    def momentum_p_of_partical(self)->str:
+        '''
+        P34 / 529
+        
+        E : energy
+
+        m : particle mass
+
+        c : speed of light
+
+        === theory ===
+
+        a) the momentum of a particle is : p = (E^2 - m^2 * c^4)^0.5 / c
+
+        for a photon, m = 0, so : p = E / c
+
+        b) the wavelength of a particle, λ = h / p = h * c / (E^2 - m^c * c^4)^0.5
+
+        for a photon, m = 0, so : λ = h * c / E
+
+        c) the velocity of a particle is : v = p * c^2 / E = c * [1 - (m^2 * c^4 / E^2)]^0.5
+
+        for a photon, m = 0, so : v = c
+       
+        note: for particle such as electron, mass != zero
+
+        '''
+        return 'p = (E^2 - m^2 * c^4)^0.5 / c'
+
+    @property
+    def deterministic_laws_of_motion(self)->str:
+        return 'Newton\'s law'
+
+    @property
+    def laws_of_probability(self)->str:
+        return ''
+
+    @property
+    def first_order_rate_law(self)->str:
+        '''
+        P38 / 529
+
+        A10 : Einstein coefficient for spontaneous emission
+        
+        '''
+        return '- dN1 / dt = A10 * N1'
+
+    def optical_path(self, n:float, d:float)->float:
+        '''
+        P72 / 529
+
+        [d] = n * d
+
+        [d] : optical path
+
+        n   : refractive index
+
+        d   : physical thickness of a material
+        '''
+        return n * d
+
+    def lorentz_lorenz_equation(self)->str:
+        '''
+        P79 / 529
+        
+        N is the number of polarisable units in the material
+
+        αe is the electronic polarisability of each (identical) unit
+
+        note: This equation is only applicable to homogeneous isotropic materials that do not contain
+              permanent dipoles or dipolar molecules
+        '''
+        return '(n^2 - 1) / (n^2 + 2) = N * αe / 3ε0'
+
+    def cauchy_equation(self)->str:
+        '''
+        P84 / 529
+
+        dispersion and colour produced by dispersion
+
+        for many transparent materials, 
+        a good representation of the variation of refractive index with wavelength in the visible region is given by
+        Cauchy's equation:
+        
+
+        note: for lens design, Cauchy's equation is insufficiently precise
+        '''
+        return 'n = A + B / λ^2 + C / λ^4'
+
+    def sellmeier_equation(self)->str:
+        '''
+        P85 / 529
+
+        for a more accurate formula,
+
+        which gives the refractive index of glasses in wavelength range [365nm, 2300nm] to high degree of fidelity
+
+        where the wavelength l is in micrometres and B1 B3 and C1 C3
+
+        are the Sellmeier constants appropriate to the glass
+
+        The Sellmeier equation can also be applied to transparent crystals
+        '''
+        return 'n = (1 + B1 * λ^2 / (λ^2 - C1) + B2 * λ^2 / (λ^2 - C2) + B3 * λ^2 / (λ^2 - C3))^0.5'
+
+    def coeffecient_of_reflection(self, n0:float, ns:float)->float:
+        '''
+        P111 / 529
+
+        the amount of light reflected from such a surface depends upon the polarisation of the light
+        
+        coeffecient of reflection r: define such that if a wave of amplitude ε0 falls upon surface then the amplitude of the reflected wave is rε0
+
+        r = (n0 - ns) / (n0 + ns)
+
+        n0 : refractive index of medium A
+
+        ns : refractive index of medium B
+        '''
+        return (n0 - ns) / (n0 + ns)
+
+    def reflectance(self, n0:float, ns:float)->float:
+        '''
+        or reflectivity
+        '''
+        return self.coeffecient_of_reflection(n0, ns) ** 2
 
 if __name__ == '__main__':
     w = Wave()
