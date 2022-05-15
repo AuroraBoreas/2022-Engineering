@@ -103,6 +103,9 @@ class SquarePyramid(TriangularPyramid):
 
 class Prism(C3DShape):
     def __init__(self, base_area: float, base_perimeter: float, length: float) -> None:
+        '''
+        Triangle Prism
+        '''
         self._base_area = base_area
         self._base_perimeter = base_perimeter
         self._length = length
