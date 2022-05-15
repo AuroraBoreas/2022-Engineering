@@ -2,6 +2,9 @@ from abc import abstractmethod
 import math
 
 class C3DShape:
+    '''
+    Common 3D Shape @ZL, 20220516
+    '''
     @abstractmethod
     def get_surface_area(self) -> float:
         raise NotImplementedError()
@@ -111,6 +114,9 @@ class Prism(C3DShape):
         return self._base_area * self._length
 
 class C2DShape:
+    '''
+    Common 2D Shape @ZL, 20220516
+    '''
     @abstractmethod
     def get_perimeter(self) -> float:
         raise NotImplementedError()
