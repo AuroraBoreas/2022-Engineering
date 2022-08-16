@@ -2,6 +2,8 @@
 
 my purpose is to find a better technics to solve geometry problems in engineering field;
 
+learning by doing
+
 - what: geometry
 - why: understand geometry deeply and smartly
 - how: methods
@@ -19,7 +21,8 @@ angle  ∠
 degree °
 congruent ≅ 
 neq ≠
-
+plusminus ±
+minusplus ∓
 ```
 
 ### Content
@@ -849,8 +852,291 @@ Thm 8. Let PR and P'R' be chords of circles with centers O and O' and the same r
 
 Thm 9. Let P be a point on a circle Γ with center O in a plane ε. The perpendicular to OP through P in ε is the unique tangent Γ to through P.
 
-Thm 10. Let Γ bea circle with center O in a plane ε, and P be a point in ε exterior to Γ. There are exactly two tangents to Γ through P. If these intersect Γ at points Y and Z, then ∆OYP and ∆OZP are congruent right triangles.
+Thm 10. Let Γ be a circle with center O in a plane ε, and P be a point in ε exterior to Γ. There are exactly two tangents to Γ through P. If these intersect Γ at points Y and Z, then ∆OYP and ∆OZP are congruent right triangles.
 
+Thm 11. Set up Cartesian coordinates. Let Σ be the sphere with center Z=<z1,z2,z3>. Then a point X=<x1,x2,x3> lies
+    on Σ if           (x1 - z1)^2 + (x2 - z2)^2 + (x3 - z3)^2 = r^2,
+    interior to Σ if  (x1 - z1)^2 + (x2 - z2)^2 + (x3 - z3)^2 < r^2,
+    exterior to Σ if  (x1 - z1)^2 + (x2 - z2)^2 + (x3 - z3)^2 = r^2.
+
+Thm 12. The intersection of a plane ε and a sphere Σ is empty, a point, or a circle. The last case holds if and only if ε contains a point interior to Σ.
+
+Thm 13. Let PQ be a chord of a sphere Σ, let ε be a plane, and let PQ ∩ ε be a point X. Then any two of the following conditions imply the third:
+    1. ε passes through the center of Σ;
+    2. PQ ⊥ ε;
+    3. X is the midpoint of PQ.
+
+Thm 14. Let δ be a plane, let Σ be a sphere, and let δ ∩ Σ be a circle Γ. Let RS be a chord of Σ, and δ ∩ RS be a point X. Then any two of the following conditions imply the third:
+    1.RS is a diameter of Σ;
+    2.δ ⊥ RS;
+    3.X is the center of Γ.
+
+Thm 15. Let Σ and Σ' be sphere with centers O and O' and the same radius. Let δ and δ' be planes whose intersections with Σ and Σ' are circles with radii r and r'. Let d and d' be the distances from O and O' to δ and δ'. Then r <= r' if and only if d >= d'.
+
+Thm 16. Let P be a point on a sphare Σ with center O. The plane ε perpendicular to OP through P is the unique plane tangent to Σ through P. A line through P is tangent to Σ if and only if it lies in ε.
+
+Thm 17. Let X and Y be points on a sphere Σ and P be a point not on Σ. If PX and PY are tangent to Σ, then PX = PY.
+
+```
+
+
+### 3.13 Arcs and trigonometric functions
+
+concepts
+
+```
+Angular scales and angle parameters
+Major and minor arcs, semicircles, and their measures
+Inscribed angles and subtended arcs
+Cosines and sines
+Periodic functions
+Parametric equations for circles and spheres
+Basic identities
+Even and odd functions
+Tangents
+Right triangle trigonometry
+```
+
+angle measurement
+
+```
+θ = 360q + r
+
+q is an integer, θ // 360 = q;
+-180 < r <= 180, θ % 360 = r.
+
+angular scale: a functon p from the set of all real numbers onto the set of rays in a plane ε originating at a point O, is called an angular scale at O in ε if p(α) = OA and p(β) = OB imply
+    |(α - β) mod 360°| = m∠AOB.
+
+Thm 1. Let p be an angular scale at a point O, in some plane ε. Its initial ray OZ = p(0°) and the ray OZ' = p(180°) are opposite. Let OU = p(1°). For any number α, with α* = α mod 360° and OA = p(α),
+    α* = 180°       => ΟΑ = ΟΖ';
+    0° < α* < 180°  => A lies on the same side of OZ in ε as U, and mZOA = α*;
+    α* = 0°         => ΟΑ = ΟΖ;
+    -180° < α* < 0° => A lies on the side of OZ in ε opposite U and mZOA = -α*.
+
+Thm 2. This function p is in fact an angular scale at O in ε.
+
+Thm 3. Let ζ be any constant. If p is an angular scale at point O in plane ε, then so are the function θ -> p(ζ + θ) and θ -> (ζ - θ). Moreover, if p' is also an angular scale at O and p(ζ) = p'(0°), then p'(θ) = p(ζ + θ) for all , or else p'(θ) = p(ζ - θ) for all θ.
+    |(α - β) mod 360°| = |((ζ ± α) - (ζ ± β)) mod 360°|.
+
+```
+
+
+arcs
+
+```
+Thm 4. Let PQR and P'Q'R' be minor arcs of circles with centers O and O' and the same radius. Let d and d' denotes the distances from O and O' to PR and P'R'. Then these conditions are equivalent: m∠POR <= m∠P'O'R', mPQR <= mP'O'R' and d >= d'.
+
+Thm 5(arc addtion theorem). Let P, Q, R, S, and T be pooints on a circle, such that PQR ∩ RST is the point R. Then PQR ∪ RST = PRT and mPQR + mRST = mPRT.
+
+Thm 6. The measure of an inscribed angle is half that of its subtended arc.
+
+Corollary 7. All angles inscribed in the same arc are congruent.
+
+Corollary 8. An angle inscribed in a semicircle is a right angle. 
+
+Corollary 9. m∠PQR = 1/2 mPSQ.
+
+```
+
+
+trigonometric functions
+
+```
+Corollary 11. Thm 10 also holds for the circle with center Z = <z1, z2> and radius r, and the mapping θ -> T = <t1, t2>, where
+    t1 = z1 + rcosθ
+    t2 = z2 + rsinθ
+
+
+Corollary 12. The function <θ, φ> -> Τ = <t1, t2, t3>, where
+    t1 = z1 + rcosθ
+    t2 = z2 + rsinθ
+    t3 = z3 + rcosθ,
+maps the set {<θ, φ>: 0° <= θ < 360° & 0° <= φ <= 180} onto the sphere with center Z=<z1, z2, z3> and radius r.
+
+Thm 13. For all theta, the sine and cosine satisfy the cofunction, half-turn, and supplementary-angle identities
+    cosθ = sin(90° - θ)        sinθ = cos(90° - θ)
+    cos(θ + 180°) = -cosθ      sin(θ + 180°) = -sinθ
+    cos(180° - θ) = -conθ      sin(180° - θ) = sinθ.
+moreover, even-odd
+    cos(-θ) = consθ     sin(-θ) = -sinθ.
+
+Thm 14. The tangent is an even function. For n = 0, ±1, ±2, ... and any θ, the following periodic identity holds, or else both sides are undefined: tan(θ + 180°) = tanθ.
+
+Thm 15. In any right triangle ABC with hypotenuse c and legs a and b opposite acute angles at vertices A and B,
+    cos m∠A = b/c,    a^2 + b^2 = c^2
+    sin m∠B = a/c,    m∠A + m∠B = 90°
+    tan m∠B = b/a.
+
+Thm 16. Consider figure 3.13.5, where PXQ is an arc of a unit circle with center O, theta=m∠POQ, and 0° < θ < 90°, Then sinθ = QR < PQ < PS = tanθ and OS = 1/cosθ
+
+```
+
+![complementary vs supplementary]('./static/Complementary-and-Supplementary-Angles.jpg')
+
+
+### 3.14 π
+
+concepts
+
+```
+Polygons inscribed in arcs; regular polygons
+Arc length and circumference
+Proportionality of arc length to radius and to arc measure in degree π
+Archimedes' approximation π
+Transcendence of π
+Radian measure
+Definition and area of a disk and a sector
+Definition and volume of a cylinder, a cone, and a ball
+```
+
+theorems
+
+```
+Thm 1. The lengths of ars of equal measure in circles with radii r and r' have the ratio r/r'.
+
+Thm 2. Arcs of equal measure in circles of equal radius have the same length.
+
+Lemma 3 (Length addtion). Suppose circular arc PRT is the union of arc PQR and RST. Then l(PRT) = l(PQR) + l(RST).
+
+Lemma 4 (neq). If PQR and P'Q'R' are arcs in the same circle and mPQR < mP'Q'R', then l(PQR) < l(P'Q'R').
+
+Thm 5. The lengths of arcs in a circle Γ have the same ratio as their degree measures.
+
+Thm 6. The circumference of a circle Γ with radius r is 2πr. the length of a d° arc is Γ is (π / 180)d°r.
+```
+
+
+### 5.1 Four concurrence theorems
+
+concepts
+
+```
+Standard triangle terminology and notation
+Edge bisectors of ∆ABC
+Circumcircle, circumcenter O, and Circumradius R
+Angle bisectors
+Incircle, incenter I, and inradius r
+Medians and centroid G
+Altitudes and orthocenter H
+```
+
+theorems
+
+```
+Thm 1 (Edge bisector theorem). The perpendicular bisectors of the edges of ∆ABC meet at a point O equidistant from its vertices.
+
+Thm 2. Any three noncollinear points lie on a unique circle.
+
+Thm 3 (angle bisector theorem). The angle bisectors of ∆ABC meet at an interior point I equidistant from the edge lines.
+
+Thm 5 (medians theorem). The medians of ∆ABC meet at a point G two thirds of the way from any vertex to the midpoint of the opposite side.
+
+Thm 6. The edges of the medial triangle are parallel to those of ∆ABC and half their length.
+
+Corollary 7 (Altitudes theorem). The altitude lines of triangle ∆ABC meet at a point H.
+
+Corollary 8. The circumcenter of a triangle is the orthocenter of its medial triangle.
+
+```
+
+*Concurrent* : a set of lines that pass through a single point is called concurrent. 
+
+### 5.2 Menelaus' theorem (P.162)
+
+concepts
+
+```
+Directed distances
+Menelaus' product
+Menelaus' theorem
+```
+
+### 5.3 Desargues' theorem
+
+concepts
+
+```
+Pencils of lines
+Euclidean forms of Desargues' theorem
+Does Desargues' theorem require metric notions?
+```
+
+### 5.4 Ceva's theorem
+
+concepts
+
+```
+Ceva's theorem
+Derving the medians, altitudes, and angle bisectors theorems
+Proving Ceva's theorem by mechanics
+```
+
+
+### 5.5 Trigonometry
+
+concepts
+
+```
+Law of sines
+Law of cosines
+Determining other parts of a triangle from ASA, SAS, or SSS data
+Using SSA data
+Cosine and sine sum and difference formulas
+Cosine and sine double angle formulas
+SAS and ASA area formulas; Hero's SSS area formula
+Area formulas involving the circumradius
+Inequalities for approximating sine values
+```
+
+```
+1. Law of sines
+Thm 1 (Law of sines). If R is the circumradius of triangle ∆ABC, then
+a / sin m∠A = b / sin m∠B = c / sin m∠C = 2R.
+
+2. Law of cosines
+Thm 2 (Law of cosines). In ∆ABC, a^2 = b^2 + c^2 - 2bccos m∠A.
+
+Addition, subtraction, double and half angle formulas
+sin(a ± b) = sin a cos b ± cos a sin b
+cos(a ± b) = cos a cos b ∓ sin a sin b
+sin 2a = 2sin a cos a
+cos 2a = cos^2 a - sin^2 b = 2cos^2 a - 1 = 1 - 2sin^2 a
+
+Area formulas
+Thm 8(SAS and ASA area formula). The area of ∆ABC is
+    a∆ABC = 1/2 bc sin m∠A = (c^2 sin m∠A sin m∠B) / (2 sin m∠C)
+
+Thm 12. If 0° < θ < 90°, then sinθ < πθ/180° < tanθ. 
+
+```
+
+
+### 5.6 Vector product (P192 / 507)
+
+concepts
+
+```
+Dot product
+Cross Product
+Distinguishing sides of lines and planes
+Determinant criteria for collinearity and coplanarity
+Determinant formulas for triangle area, and volume of a tetrahedron
+When do four planes, or three lines in a plane, have a common point?
+```
+
+dot products
+
+you can use the law of consines with a coordinate system and vector algebra to measure angles. Regard points P=<p1, p2, p3> and Q=<q1,q2,q3> as vectors, with dot product P・Q = p1q1 + p2q2 + p3q3.
+
+```
+Thm 1. If points P and Q are noncollinear with the origin O, then P・Q = (OP)(OQ)cos m∠POQ.
+
+Corollary 2(angle formula). If P, X, and V are noncollinear points, then
+    cos m∠PVX = (P - V)・(X - V) / (VP)(VX)
+
+Thm 3. A point X lies on a line g = VP just in case
+    det[P - V, X - V] = 0.
 
 ```
 
