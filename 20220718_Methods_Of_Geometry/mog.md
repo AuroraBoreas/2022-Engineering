@@ -1141,3 +1141,107 @@ Thm 3. A point X lies on a line g = VP just in case
 ```
 
 
+## 6 Plane isometries and similarities
+
+pre
+
+### 6.1 Transformations
+
+concepts
+
+```
+Functions: Domain, value, image and range
+Linear functions
+Preserved and invariant properties of figures
+Function composition
+Associativity and noncommutativity
+Surjections, injections, and bijections
+Inverse functions
+Transformations
+Symmetric group, transformation groups
+Geometric transformations
+```
+
+
+#### Functions
+
+the functions concept pervades mathematics. In this book, for example, it has appeared among the undefined concepts and axioms:
+
+```
+The distance function assigns to each pair of points X, Y the distance XY.
+A scale for a line g assignes to each point P on g a coordinate c(P).
+The area function assigns to each polygonal region Σ its area aΣ
+```
+
+
+### 6.2 Isometries
+
+concepts
+
+```
+Definition
+Physical motions and time are not geometric concepts
+Translations
+Rotations
+Reflections
+The isometry group
+Noncummutativity
+Invariance
+Rigidity theorem
+Uniqueness theorem
+```
+
+
+```
+Thm 1. The translation r:  X -> X + V is an isometry.
+
+Thm 2. For any θ, the rotation ρ0 is an isometry.
+
+Thm 3. The reflection αg across line g is an isometry.
+
+Thm 4. The isometries form a subgroup of the symmetric group of the plane.
+
+Thm 5. Betweenness is invariant under any isometry  X -> X'.
+
+```
+
+Fixpoints: rigidity and uniqueness theorems.
+
+A fixpoint of a transformation φ is a point X that it leaves fixed: φ(X) = X.
+
+often it's easier to analyze a transformation by considering its fixpoint than by studying how it changes other points.
+
+- Transformations, except for the identity, have NO fixpoints.
+- Rotation except for the identity, have exactly one.
+- The reflection in a line g has a whole line of fixpoints.
+- And the fixpoints of the identity transformation constitute the whole plane.
+
+```
+Thm 6. If an isometry X -> X' has fixpoints P != Q, then every point X on PQ is fixed.
+
+Thm 7. The only isometry with three noncollinear fixpoints is the identity.
+
+Thm 8 (Uniqueness theorem). If x and ψ are isometries, and 
+    χ(Α) = ψ(Α), χ(Β) = ψ(Β), χ(C) = ψ(C)
+for noncollinear points A, B, and C, then χ = ψ. 
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
